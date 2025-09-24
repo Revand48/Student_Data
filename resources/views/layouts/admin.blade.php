@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"
+      x-data="{ dark: localStorage.getItem('dark') === 'true' }"
+      x-init="$watch('dark', val => localStorage.setItem('dark', val))"
+      :class="{ 'dark': dark }"
+      class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $title ?? config('app.name') }}</title>
+    @vite('resources/css/app.css')
+
+    <!-- Tailwind CSS 4 (CDN) -->
+    <script src="https://cdn.tailwindcss.com/4"></script>
+
+    <!-- Alpine.js 3 -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Konfigurasi tambahan Tailwind (opsional) -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // kita pakai class strategy
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
+    <!-- Sidebar -->
+    @include('admin.sidebar')
+
+    <!-- Navbar -->
+    @include('admin.navbar')
+
+
+    <!-- KONTEN UTAMA -->
+    <main class="min-h-[60vh]">
+        @yield('content')
+    </main>
+
+    <!-- FOOTER -->
+    @include('components.footer')
+    
+        {{-- Alpine.js untuk modal hapus --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
+</body>
+</html>
