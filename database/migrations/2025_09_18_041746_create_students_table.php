@@ -13,10 +13,9 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nisn')->nullable()->unique();
             $table->string('kelas')->nullable();
-            $table->enum('jurusan', ['lps','dkv','aphp','kuliner','rpl'])->nullable();
+            $table->enum('jurusan', ['LPS','DKV','APHP','KULINER','RPL'])->nullable();
             $table->text('alamat')->nullable();
-            $table->date('tanggal_lahir')->nullable(); // pakai date, bukan string
-            $table->timestamps();
+            $table->date('tanggal_lahir')->nullable(); 
         });
     }
 

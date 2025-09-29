@@ -40,7 +40,7 @@ class StudentController extends Controller
             'nama'          => 'required|string|max:255',
             'nisn'          => 'nullable|string|max:50|unique:students,nisn',
             'kelas'         => 'nullable|string|max:50',
-            'jurusan'       => 'nullable|string|in:lps,dkv,aphp,kuliner,rpl',
+            'jurusan'       => 'nullable|string|in:LPS,DKV,APHP,KULINER,RPL',
             'alamat'        => 'nullable|string',
             'tanggal_lahir' => 'nullable|date',
         ]);

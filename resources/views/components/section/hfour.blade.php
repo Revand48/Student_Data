@@ -93,9 +93,9 @@
                                 <td class="px-4 py-3">{{ $student->nama }}</td>
                                 <td class="px-4 py-3">{{ $student->nisn }}</td>
                                 <td class="px-4 py-3">{{ $student->kelas }}</td>
-                                <td class="px-4 py-3">{{ $student->jurusan }}</td>
+                                <td class="px-4 py-3">{{ strtoupper($student->jurusan) }}</td>
                                 <td class="px-4 py-3">{{ $student->alamat }}</td>
-                                <td class="px-4 py-3">{{ $student->tanggal_lahir }}</td>
+                                <td class="px-4 py-3">{{ \Carbon\Carbon::parse($student->tanggal_lahir)->format('d-m-Y') }}</td>
                             </tr>
                         @empty
                             <tr>
